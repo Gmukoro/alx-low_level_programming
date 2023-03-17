@@ -1,9 +1,9 @@
 #include <stdio.h>
-/*
+/**
+ * main - Entry point
+ * Description - To out put a message using printf function
  *
- * main - A program that prints a line using printf function
- *
- * Return: 0 Always (success)
+ * Return: Always (Success) 0
  */
 int main(void)
 {
