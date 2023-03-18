@@ -1,28 +1,33 @@
-#include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <stdio.h>
+
 /**
  * main - Entry point
- * Description: A program that assign random numbers to the variable n
- * . Each time its executed
+ * Description: Determines eithe
+ * r greater than 5, is less than 6
+ * , or is 0
  *
- * Return: 0 Always (Success)
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
-	int n;
+	int n, l;
 
 	srand(time(0));
-	n = rand() - RAND_MAX / 2
-	
-	int m;
-	m = n % 10;
-	if (m > 5)
-		printf("Last digit of%d is %d and is greater than 5\n", n, m);
-	if (m == 0)
-		printf("Last digit of %d is %d and is 0\n", n, m);
-	if (m < 6 && m != 0)
-		printf("Last digit of %d is %d and less than 6 and not 0\n", n, m);
+	n = rand() - RAND_MAX / 2;
+	l = n % 10;
+	if (l > 5)
+	{
+		printf("Last digit of %d is %d and is greater than 5\n", n, l);
+	}
+	else if (l == 0)
+	{
+		printf("Last digit of %d is %d and is 0\n", n, l);
+	}
+	else
+	{
+		printf("Last digit of %d is %d and is less than 6 and not 0\n", n, l);
+	}
 	return (0);
 }
-	
