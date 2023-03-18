@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <unistd.h>
 /**
  * main - Entry point
  * Description: A program that prints a line to the standard error
