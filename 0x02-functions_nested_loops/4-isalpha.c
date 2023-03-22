@@ -1,4 +1,4 @@
-i#include "holberton.h"
+i#include "main.h"
 
 /**
  * _isalpha - Shows 1 if the input is a
@@ -19,4 +19,4 @@ int _isalpha(int c)
 		return (0);
 	}
 	_putchar('\n');
-}
+i}
