@@ -7,10 +7,11 @@
  * Return: Always 0 (success)
  */
 void print_alphabet(void)
+	i
 {
-	char i;
+	int i;
 
-	for (i = 'a' ; i < 'z' ; i++)
+	for (i = 97 ; i < 122 ; i++)
 		_putchar (i);
 	_putchar ('\n');
 
