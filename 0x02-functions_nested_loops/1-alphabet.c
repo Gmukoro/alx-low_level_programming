@@ -6,7 +6,6 @@
  * Description: A program that prints the alphabet in lower
  * case follow by a new linee.
  *
- * Return: Always 0 (success)
  */
 
 void print_alphabet(void)
