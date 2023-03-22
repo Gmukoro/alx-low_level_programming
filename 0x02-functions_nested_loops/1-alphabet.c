@@ -1,6 +1,8 @@
 #include "main.h"
+
+
 /**
- * main - Entry Point
+ * print_alphabet - Entry Point
  * Description: A program that prints the alphabet in lower
  * case follow by a new linee.
  *
@@ -9,11 +11,9 @@
 void print_alphabet(void)
 
 {
-	int i;
+	char i;
 
-	for (i = 97; i <= 122; i++)
-	{
+	for (i = 'a'; i <= 'zi'; i++)
 		_putchar(i);
-	}
 	_putchar('\n');
 }
