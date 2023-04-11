@@ -1,4 +1,3 @@
-#include "main.h"
 #include <stdio.h>
 
 /**
@@ -9,7 +8,7 @@
 * Return: 0
 */
 
-int main(int argc, char **argv[])
+int main(int argc, char **argv)
 {
 	int length;
 
