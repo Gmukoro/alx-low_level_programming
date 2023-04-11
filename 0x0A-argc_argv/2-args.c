@@ -9,16 +9,11 @@
 * Return: 0
 */
 
-int main(int argc, char *argv[])
+int main(int argc, char **argv[])
 {
-	int length = 0;
+	int length;
 
-	if (argc > 0)
-
-		while (argc < length)
-		{
-			printf("%s\n", argv[length]);
-			length++;
-		}
+	for (length = 0; length < argc; length++)
+		printf("%s\n", argv[length]);
 	return (0);
 }
