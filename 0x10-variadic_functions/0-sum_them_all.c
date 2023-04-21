@@ -18,7 +18,7 @@ int sum_them_all(const unsigned int n, ...)
 	va_start(jents, n);
 
 	for (t = 0; t < n; t++)
-		sum += va_arg(night, int);
+		sum += va_arg(jents, int);
 	va_end(jents);
 	return (sum);
 }
