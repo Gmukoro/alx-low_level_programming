@@ -1,11 +1,12 @@
 #include "stdio.h"
 
 /**
-* singly_print - A function that prints
+* bmain - Executes before main
+*
 *
 */
-void singly_print((constructor))bmain()
+void __attribute__((constructor)) bmain()
 {
-	printf("You're beat! and yet, you must allow,\n
-I bore my house upon my back!\n");
+	printf("You're beat! and yet, you must allow");
+	printf(",\nI bore my house upon my back!\n");
 }
