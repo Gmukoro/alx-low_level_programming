@@ -1,4 +1,4 @@
-#include <lists.h>
+#include "lists.h"
 
 /**
 * free_list - A function that frees a list
@@ -10,8 +10,8 @@ void free_list(list_t *head)
 
 	while ((present = head) != NULL)
 	{
-		head = head => next;
-		free (present => str);
+		head = head->next;
+		free (present->str);
 		free (present);
 	}
 }
