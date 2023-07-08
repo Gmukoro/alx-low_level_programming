@@ -1,13 +1,13 @@
 #include "main.h"
 
 /**
- * flip_bits - gets the number of bits needed to be flied to 
+ * flip_bits - A program that gets the number of bits needed to be flippedd to
  *		convert one number to another
  *
- * @n: the first number to consider
- * @m: the second number to consider
+ * @n: The first number to be considered
+ * @m: The second number to be considered
  *
- * Return: the number of bit needed to be flipped
+ * Return: The number of bit needed to be flipped
  */
 
 unsigned int flip_bits(unsigned long int n, unsigned long int m)
