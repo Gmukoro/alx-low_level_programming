@@ -15,35 +15,35 @@
 
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	int text;
-	int re;
+	int st;
+	int reading;
 	char *reed;
 
-	reed = read(text, reed, letters);
-	if (reed || !filename)
+	reed = malloc(sizeof(char) * letters + 1);
+	if (!reed || !filename)
 		return (0);
 
-	text = open(filename, O_RDONLY);
-	if (text == -1)
+	st = open(filename, O_RDONLY);
+	if (st == -1)
 	{
 		free(reed);
 		return (0);
 	}
-	re = read(text, reed, letters);
-	if (re == -1)
+	reading = read(st, reed, letters);
+	if (reading == -1)
 	{
-		close(text);
+		close(st);
 		free(reed);
 		return (0);
 	}
-	reed[re] = '\0';
-	if ((write(STDOUT_FILENO, reed, re)) == -1)
+	reed[reading] = '\0';
+	if ((write(STDOUT_FILENO, reed, reading)) == -1)
 	{
-		close(text);
+		close(st);
 		free(reed);
 		return (0);
 	}
-	close(text);
+	close(st);
 	free(reed);
-	return (re);
+	return (reading);
 }
