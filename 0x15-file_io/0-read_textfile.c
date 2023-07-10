@@ -19,8 +19,8 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	int re;
 	char *reed;
 
-	reed = malloc(sizeof(char) * letters + 1);
-	if (!re || !filename)
+	reed = read(text, reed, letters);
+        if (reed == -1)
 		return (0);
 
 	text = open(filename, O_RDONLY);
