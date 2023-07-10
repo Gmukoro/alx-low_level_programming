@@ -20,7 +20,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	char *reed;
 
 	reed = read(text, reed, letters);
-        if (reed == -1)
+	if (reed || !filename)
 		return (0);
 
 	text = open(filename, O_RDONLY);
