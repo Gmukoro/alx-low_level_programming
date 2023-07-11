@@ -35,7 +35,7 @@ int main(int argc, char **argv)
 	{
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
-	}
+
 	cop_a = open(argv[1], O_RDONLY);
 	if (cop_a < 0)
 	{
@@ -66,4 +66,5 @@ int main(int argc, char **argv)
 	close_file(cop_a);
 	close_file(cop_b);
 	return (0);
+	}
 }
