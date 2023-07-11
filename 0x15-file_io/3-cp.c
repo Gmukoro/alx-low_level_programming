@@ -6,45 +6,18 @@
  * @file_from: The source file
  * Return: ...
  */
-int cp(char *file_to, char *file_from)
+void close_file(int filedesc)
 {
-	char *buffer[1024];
-	int d, f, r, fw, cit, ftc;
+	int print;
 
-	f = open(file_from, O_RDONLY);
-	if (f < 0)
-		return (98);
+	print = close(filedesc);
 
-	d = open(file_to, O_CREAT | O_WRONLY | O_TRUNC, 0664);
-	if (d < 0)
-		return (99);
-
-	r = read(d, buffer, 1024);
-	if (r < 0)
-		return (98);
-	while (r > 0)
+	if (print < 0)
 	{
-		fw = write(d, buffer, r);
-		if (fw < 0)
-			return (99);
-		r = read(d, buffer, 1024);
-		if (r < 0)
-			return (98);
+		if (print < 0)
+			dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", filedesc);
+		exit(100);
 	}
-
-	cit = close(d);
-	if (cit < 0)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close d %d\n", cit);
-		return (100);
-	}
-	ftc = close(d);
-	if (ftc < 0)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close d %d\n", ftc);
-		return (100);
-	}
-	return (0);
 }
 
 /**
@@ -53,40 +26,44 @@ int cp(char *file_to, char *file_from)
  * @av: Argument vector
  * Return: always 0
  */
-int main(int ac, char **av)
+int main(int argc, char **argv)
 {
-	int fr;
+	int rd, cop_a, cop_b, wt;
+	char *buf;
 
-	if (ac != 3)
-
-	dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n"), exit(97);
-
-	fr = cp(av[2], av[1]);
-
-	switch (fr)
-
+	if (argc != 3)
 	{
-
-		case (98):
-
-			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
-
-			exit(98);
-
-		case (99):
-
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
-
-			exit(99);
-
-		case (100):
-
-			exit(100);
-
-		default:
-
-			return (0);
-
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
+		exit(97);
 	}
-
+	cop_a = open(argv[1], O_RDONLY);
+	if (cop_a < 0)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+		exit(98);
+	}
+	buf = malloc(sizeof(char) * 1024);
+	if (!buf)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't write to %s/n", argv[2]);
+		exit(99);
+	}
+	rd = read(cop_a, buf, 1024);
+	if (rd < 0)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+		exit(98);
+	}
+	cop_b = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
+	wt = write(cop_b, buf, rd);
+	if (wt < 0 || rd != wt)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't write to %s/n", argv[2]);
+		close(cop_a);
+		free(buf);
+		exit(99);
+	}
+	close_file(cop_a);
+	close_file(cop_b);
+	return (0);
 }
