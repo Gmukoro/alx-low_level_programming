@@ -47,7 +47,7 @@ int f5(char *usrn, int len)
 
 	while (vch < len)
 	{
-		chr = ch + usrn[vch] * usrn[vch];
+		chr = chr + usrn[vch] * usrn[vch];
 		vch += 1;
 	}
 
