@@ -2,8 +2,8 @@
 
 /**
  * main - Entry point
- * @argc: Argument count
- * @argv: Argument vector
+ * @argc: Argument counts
+ * @argv: Argument vectors
  * Return: always 0
  */
 int main(int argc, char *argv[])
